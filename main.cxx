@@ -28,6 +28,7 @@ struct DoesNotContainTestFunction
 template<typename T>
 void TemplatedTestCaller(T t)
 {
+#if __cpp_concepts
     /// @brief Thanks to C++20's Requires expressions,
     /// this can be done very easily
     /// The requires expression is able to check if the given code
@@ -36,6 +37,7 @@ void TemplatedTestCaller(T t)
     {
         { t.Test(1, 2) } -> std::same_as<void>;
     };
+#endif
 
     /// @note The type of contains_test will be a boolean
     static_assert(
