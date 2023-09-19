@@ -40,7 +40,7 @@ void TemplatedTestCaller(T t)
     /// @note The type of contains_test will be a boolean
     static_assert(
         std::is_same_v<
-            std::remove_cvref_t<decltype(contains_test)>,
+            std::remove_cv_t<decltype(contains_test)>,
             bool>);
 
     /// Take a decision at compile time whether we wish to call Test or do something else
