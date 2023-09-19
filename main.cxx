@@ -1,6 +1,8 @@
 #include <iostream>
 #include <type_traits>
 
+#include <boost/hana/type.hpp>
+
 struct ContainsFunction
 {
     void Test(int x, int y)
@@ -35,6 +37,11 @@ void TemplatedTestCaller(T t)
             t.Test(1, 2)
         } -> std::same_as<void>;
     };
+#else
+    static constexpr auto const contains_test = static_cast<bool>(boost::hana::is_valid(
+        [](auto &&obj) -> decltype(obj.Test(1, 2)) {
+
+        })(t));
 #endif
 
     /// @note The type of contains_test will be a boolean
