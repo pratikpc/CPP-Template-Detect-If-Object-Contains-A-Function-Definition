@@ -1,0 +1,3 @@
+[submodule ".coder"]
+	path = .coder
+	url = https://github.com/pratikpc/Coder-VSCode-Docker-Development-Image
