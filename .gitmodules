@@ -1,3 +1,6 @@
 [submodule ".coder"]
 	path = .coder
 	url = https://github.com/pratikpc/Coder-VSCode-Docker-Development-Image
+[submodule "vcpkg"]
+	path = vcpkg
+	url = https://github.com/microsoft/vcpkg
