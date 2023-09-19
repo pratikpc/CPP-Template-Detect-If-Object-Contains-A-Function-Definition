@@ -17,7 +17,17 @@ add_executable (${PROJECT_NAME})
 # Add the source files
 target_sources(${PROJECT_NAME} PRIVATE main.cxx)
 
-target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_20)
+if(CXX20)
+  target_compile_features(${PROJECT_NAME}
+     PRIVATE
+      cxx_std_20
+  )
+else()
+  target_compile_features(${PROJECT_NAME} 
+    PRIVATE 
+      cxx_std_17
+  )
+endif(CXX20)
 
 target_link_libraries(
         ${PROJECT_NAME}
