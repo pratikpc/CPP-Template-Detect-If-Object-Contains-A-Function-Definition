@@ -34,7 +34,7 @@ void TemplatedTestCaller(T t)
     /// with the given arguements will work or not
     static constexpr auto const contains_test = requires(T t)
     {
-        t.Test(1, 2);
+        { t.Test(1, 2) } -> std::same_as<void>;
     };
 
     /// @note The type of contains_test will be a boolean
